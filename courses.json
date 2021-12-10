@@ -1,0 +1,83 @@
+[
+    {
+        "name": "Advance Photo Editing Course",
+        "desc": "This is an advance course. We need your effort and dedication to make your self as a world class photo editor",
+        "duration": "2 Months",
+        "trainer": "Mehedi H Siam",
+        "totalClasses": 30,
+        "fees": 300,
+        "img": "./img/photoEditing.jpeg"
+    },
+    {
+        "name": "PhotoShop Basic To advance Course",
+        "desc": "This is a basic course. We need your effort and dedication to make your self as a  Photoshop Expert",
+        "duration": "3 Months",
+        "trainer": "Mehedi H Siam",
+        "totalClasses": 25,
+        "fees": 300,
+        "img": "./img/basicPhotoshop.jpg"
+    },
+    {
+        "name": "illustrator Basic To advance Course",
+        "desc": "This is a basic course. We need your effort and dedication to make your self as a  Illustrator Expert",
+        "duration": "2.5 Months",
+        "trainer": "Rukaiya Nayem",
+        "totalClasses": 30,
+        "fees": 300,
+        "img": "./img/basicIllustrator.jpg"
+    },
+    {
+        "name": "Advance PhotoShop Master Course",
+        "desc": "This is an advance course. We need your effort and dedication to make your self as a world class Photoshop Expert",
+        "duration": "6 Months",
+        "trainer": "Rafsana sathi",
+        "totalClasses": 45,
+        "fees": 500,
+        "img": "./img/advancePhotoashop.jpg"
+    },
+    {
+        "name": "Advance Illustrator Master Course",
+        "desc": "This is an advance course. We need your effort and dedication to make your self as a world class Illustrator Expert",
+        "duration": "5 Months",
+        "trainer": "Mehedi H Siam",
+        "totalClasses": 40,
+        "fees": 450,
+        "img": "./img/advanceIllustrator.jpg"
+    },
+    {
+        "name": "Adobe LightRoom Special Course",
+        "desc": "This is an advance course. We need your effort and dedication to make your self as a world class LightRoom Expert",
+        "duration": "2 Months",
+        "trainer": "Mehedi H Siam",
+        "totalClasses": 25,
+        "fees": 350,
+        "img": "./img/lightRoom.jpeg"
+    },
+    {
+        "name": "Special Graphic Design Course with Job Suport",
+        "desc": "This is an advance course. We need your effort and dedication to make your self as a world class Graphic Designer",
+        "duration": "2 Months",
+        "trainer": "Mehedi H Siam",
+        "totalClasses": 30,
+        "fees": 300,
+        "img": "./img/specialGraphic.jpg"
+    },
+    {
+        "name": "Freelancing Basic For fresher",
+        "desc": "This is a basic course. We need your effort and dedication to make your self as a Freelancer",
+        "duration": "2 Months",
+        "trainer": "Mehedi H Siam",
+        "totalClasses": 10,
+        "fees": 150,
+        "img": "./img/freelancing.jpg"
+    },
+    {
+        "name": "Fiverr Sucess Course (Online)",
+        "desc": "This is an advance course. We need your effort and dedication to make your self as a Fiverrer",
+        "duration": "2 Months",
+        "trainer": "Mehedi H Siam",
+        "totalClasses": 20,
+        "fees": 300,
+        "img": "./img/fiverr.jpg"
+    }
+]
