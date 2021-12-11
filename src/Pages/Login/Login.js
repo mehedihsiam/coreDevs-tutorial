@@ -2,9 +2,14 @@ import { Box, Button, TextField, Typography } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 
 const Login = () => {
+    const history = useHistory();
+    const location = useLocation()
+    const url = location.state?.from || '/';
+
+
     const [user, setUser] = useState([]);
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
@@ -12,11 +17,13 @@ const Login = () => {
             .then(result => {
                 const idToken = result.data.accessToken;
                 localStorage.setItem('idToken', idToken)
-                console.log(result);
                 if (result.status === 200) {
                     fetch(`http://localhost:5000/users?email=${data.email}`)
                         .then(res => res.json())
-                        .then(data => setUser(data))
+                        .then(data => {
+                            setUser(data)
+                            history.push(url)
+                        })
                     alert('Login Successful')
                     reset();
                 }
@@ -24,6 +31,7 @@ const Login = () => {
             .catch(error => {
                 console.error('Error:', error);
             });
+        sessionStorage.setItem('email', user[0].email)
     };
 
 
