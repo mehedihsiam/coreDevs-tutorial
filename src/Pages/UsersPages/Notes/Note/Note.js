@@ -9,7 +9,7 @@ const Note = ({ noteBody, notes, setNotes }) => {
     const noteDelete = (id) => {
         const proceed = window.confirm('Are you sure to delete this note?')
         if (proceed) {
-            fetch(`http://localhost:5000/notes/${id}`, {
+            fetch(`https://vast-stream-90795.herokuapp.com/notes/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

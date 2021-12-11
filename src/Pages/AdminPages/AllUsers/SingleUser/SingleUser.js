@@ -6,7 +6,7 @@ const SingleUser = ({ user, users, setUsers }) => {
     const userDelete = (id) => {
         const proceed = window.confirm('Are you sure to delete thib user?')
         if (proceed) {
-            fetch(`http://localhost:5000/allUsers/${id}`, {
+            fetch(`https://vast-stream-90795.herokuapp.com/allUsers/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

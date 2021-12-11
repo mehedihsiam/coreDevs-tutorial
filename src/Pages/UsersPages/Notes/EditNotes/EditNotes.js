@@ -9,7 +9,7 @@ const EditNotes = () => {
     const [loadedNote, setLoadedNote] = useState();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/notes/${id}`)
+        fetch(`https://vast-stream-90795.herokuapp.com/notes/${id}`)
             .then(res => res.json())
             .then(data => setLoadedNote(data))
     }, [])
@@ -19,7 +19,7 @@ const EditNotes = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch(`http://localhost:5000/notes/${id}`, {
+        fetch(`https://vast-stream-90795.herokuapp.com/notes/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -23,6 +23,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import Notes from '../UsersPages/Notes/Notes';
 import Payment from '../UsersPages/Payment/Payment';
 import AllUsers from '../AdminPages/AllUsers/AllUsers';
+import AddSubscription from '../AdminPages/AddSubscription/AddSubscription';
 
 
 
@@ -86,16 +87,7 @@ const Dashboard = (props) => {
                     </Link>
                 </ListItem>
                 <ListItem button>
-                    <Link to={`${url}/manageOrders`} className="color-b" style={{ textDecoration: 'none' }}>Manage Orders</Link>
-                </ListItem>
-                <ListItem button>
-                    <Link to={`${url}/addProduct`} className="color-b" style={{ textDecoration: 'none' }}>Add a Product</Link>
-                </ListItem>
-                <ListItem button>
-                    <Link to={`${url}/makeAdmin`} className="color-b" style={{ textDecoration: 'none' }}>Make Admin Someone</Link>
-                </ListItem>
-                <ListItem button>
-                    <Link to={`${url}/manageProducts`} className="color-b" style={{ textDecoration: 'none' }}>Manage Products</Link>
+                    <Link to={`${url}/addSubscription`} className="color-b" style={{ textDecoration: 'none' }}>Add Subscription</Link>
                 </ListItem>
             </List>
 
@@ -204,14 +196,8 @@ const Dashboard = (props) => {
                     <Route path={`${path}/allUsers`}>
                         <AllUsers></AllUsers>
                     </Route>
-                    <Route path={`${path}/addProduct`}>
-
-                    </Route>
-                    <Route path={`${path}/makeAdmin`}>
-
-                    </Route>
-                    <Route path={`${path}/manageProducts`}>
-
+                    <Route path={`${path}/addSubscription`}>
+                        <AddSubscription></AddSubscription>
                     </Route>
                 </Switch>
 

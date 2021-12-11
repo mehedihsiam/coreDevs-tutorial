@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Notes = () => {
     const [notes, setNotes] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/notes')
+        fetch('https://vast-stream-90795.herokuapp.com/notes')
             .then(res => res.json())
             .then(data => setNotes(data))
     }, [])

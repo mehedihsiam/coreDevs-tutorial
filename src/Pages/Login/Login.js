@@ -13,12 +13,12 @@ const Login = () => {
     const [user, setUser] = useState([]);
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/userLogin', data)
+        axios.post('https://vast-stream-90795.herokuapp.com/userLogin', data)
             .then(result => {
                 const idToken = result.data.accessToken;
                 localStorage.setItem('idToken', idToken)
                 if (result.status === 200) {
-                    fetch(`http://localhost:5000/users?email=${data.email}`)
+                    fetch(`https://vast-stream-90795.herokuapp.com/users?email=${data.email}`)
                         .then(res => res.json())
                         .then(data => {
                             setUser(data)

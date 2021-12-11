@@ -13,7 +13,7 @@ const SignUp = () => {
         formData.append('image', data.image[0])
         console.log(data.image[0])
 
-        fetch('http://localhost:5000/userReg', {
+        fetch('https://vast-stream-90795.herokuapp.com/userReg', {
             method: 'POST',
             body: formData
         })
