@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Note from './Note/Note';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Navbar from '../../../Shared/Header/Navbar/Navbar';
 
 
 const Notes = () => {
@@ -14,22 +15,25 @@ const Notes = () => {
             .then(data => setNotes(data))
     }, [])
     return (
-        <Container>
+        <>
+            <Navbar></Navbar>
+            <Container>
 
-            <Grid container spacing={2} sx={{ justifyContent: 'space-around', mb: 5 }}>
-                {
-                    notes.map(note => <Note
-                        key={note._id}
-                        noteBody={note}
-                        notes={notes}
-                        setNotes={setNotes}
-                    ></Note>)
-                }
-            </Grid>
-            <Button variant="outlined">
-                <Link to='/addNote' className='link'>Add Note <FontAwesomeIcon icon={faPlus} /></Link>
-            </Button>
-        </Container >
+                <Grid container spacing={2} sx={{ justifyContent: 'space-around', my: 4 }}>
+                    {
+                        notes.map(note => <Note
+                            key={note._id}
+                            noteBody={note}
+                            notes={notes}
+                            setNotes={setNotes}
+                        ></Note>)
+                    }
+                </Grid>
+                <Button variant="outlined">
+                    <Link to='/addNote' className='link'>Add Note <FontAwesomeIcon icon={faPlus} /></Link>
+                </Button>
+            </Container >
+        </>
     );
 };
 

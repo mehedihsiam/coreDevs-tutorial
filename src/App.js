@@ -8,6 +8,9 @@ import Addnote from './Pages/UsersPages/Notes/AddNote/Addnote';
 import Notes from './Pages/UsersPages/Notes/Notes';
 import EditNotes from './Pages/UsersPages/Notes/EditNotes/EditNotes';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import Subscription from './Pages/UsersPages/Subscription/Subscription';
+import SubsDetail from './Pages/UsersPages/Subscription/SubsDetail/SubsDetail';
+import EditSubs from './Pages/AdminPages/SubsList/SingleSubsList/EditSubs/EditSubs';
 
 
 
@@ -33,6 +36,15 @@ function App() {
         </Route>
         <Route path='/Dashboard'>
           <Dashboard></Dashboard>
+        </Route>
+        <Route exact path={`/Subscriptions`}>
+          <Subscription></Subscription>
+        </Route>
+        <Route exact path={`/Subscriptions/:id`}>
+          <SubsDetail></SubsDetail>
+        </Route>
+        <Route exact path={`/subscriptions/edit/:id`}>
+          <EditSubs></EditSubs>
         </Route>
         <Route exact path='/addNote'>
           <Addnote></Addnote>

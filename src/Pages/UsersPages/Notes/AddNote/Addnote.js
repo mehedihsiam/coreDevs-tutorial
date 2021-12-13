@@ -36,7 +36,7 @@ const Addnote = () => {
                 <Button type="submit" variant="contained">Create</Button>
             </form>
             <Button sx={{ m: 1 }} variant="outlined">
-                <Link className="link" to="/Dashboard/notes">Back</Link>
+                <Link className="link" to="/notes">Back</Link>
             </Button>
         </Box>
     );

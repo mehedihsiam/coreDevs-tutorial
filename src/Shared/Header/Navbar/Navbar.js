@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Subscriptions', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -75,13 +75,18 @@ const Navbar = () => {
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
                             >
-                                {settings.map((setting) => (
-                                    <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">
-                                            <Link className='link' to={setting}>{setting}</Link>
-                                        </Typography>
-                                    </MenuItem>
-                                ))}
+
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">
+                                        <Link className='link' to="Subscriptions">Subscriptions</Link>
+                                    </Typography>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">
+                                        <Link className='link' to="Dashboard">Dashboard</Link>
+                                    </Typography>
+                                </MenuItem>
+
                             </Menu>
                         </Box>
                     </Toolbar>

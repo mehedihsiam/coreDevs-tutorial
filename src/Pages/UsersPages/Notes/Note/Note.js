@@ -38,7 +38,9 @@ const Note = ({ noteBody, notes, setNotes }) => {
             </CardContent>
             <CardActions>
                 <Button size="small">
-                    <Link to={`/notes/${_id}`} className='link'><FontAwesomeIcon icon={faEdit}></FontAwesomeIcon></Link>
+                    <Link to={`/notes/${_id}`} className='link'>
+                        <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
+                    </Link>
                 </Button>
                 <Button size="small" onClick={() => noteDelete(_id)}>
                     <Typography sx={{ color: 'red' }}>

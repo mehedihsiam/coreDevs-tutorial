@@ -20,10 +20,10 @@ import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
-import Notes from '../UsersPages/Notes/Notes';
 import Payment from '../UsersPages/Payment/Payment';
 import AllUsers from '../AdminPages/AllUsers/AllUsers';
 import AddSubscription from '../AdminPages/AddSubscription/AddSubscription';
+import SubsList from '../AdminPages/SubsList/SubsList';
 
 
 
@@ -69,12 +69,6 @@ const Dashboard = (props) => {
                     <Link to={`${url}`} className="color-b" style={{ textDecoration: 'none' }}>Dashboard</Link>
                 </ListItem>
                 <ListItem button>
-                    <Link to={`${url}/notes`} className="color-b" style={{ textDecoration: 'none' }}>All Notes</Link>
-                </ListItem>
-                <ListItem button>
-                    <Link to={`${url}/subscription`} className="color-b" style={{ textDecoration: 'none' }}>Subscription</Link>
-                </ListItem>
-                <ListItem button>
                     <Link to={`${url}/payment`} className="color-b" style={{ textDecoration: 'none' }}>Payment</Link>
                 </ListItem>
             </List>
@@ -85,6 +79,9 @@ const Dashboard = (props) => {
                     <Link to={`${url}/allUsers`} className="color-b" style={{ textDecoration: 'none' }}>
                         All Users
                     </Link>
+                </ListItem>
+                <ListItem button>
+                    <Link to={`${url}/subscriptionList`} className="color-b" style={{ textDecoration: 'none' }}>Subscription List</Link>
                 </ListItem>
                 <ListItem button>
                     <Link to={`${url}/addSubscription`} className="color-b" style={{ textDecoration: 'none' }}>Add Subscription</Link>
@@ -184,17 +181,14 @@ const Dashboard = (props) => {
                     <Route exact path={path}>
 
                     </Route>
-                    <Route path={`${path}/notes`}>
-                        <Notes></Notes>
-                    </Route>
-                    <Route path={`${path}/subscription`}>
-
-                    </Route>
                     <Route path={`${path}/payment`}>
                         <Payment></Payment>
                     </Route>
                     <Route path={`${path}/allUsers`}>
                         <AllUsers></AllUsers>
+                    </Route>
+                    <Route path={`${path}/subscriptionList`}>
+                        <SubsList></SubsList>
                     </Route>
                     <Route path={`${path}/addSubscription`}>
                         <AddSubscription></AddSubscription>

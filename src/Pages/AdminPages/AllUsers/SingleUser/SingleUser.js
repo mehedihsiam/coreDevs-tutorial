@@ -1,5 +1,8 @@
 import { Button, TableCell, TableRow } from '@mui/material';
 import React from 'react';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const SingleUser = ({ user, users, setUsers }) => {
 
@@ -26,8 +29,12 @@ const SingleUser = ({ user, users, setUsers }) => {
             <TableCell>{name}</TableCell>
             <TableCell>{email}</TableCell>
             <TableCell align="right">
-                <Button sx={{ m: 1 }}>Edit</Button>
-                <Button sx={{ m: 1 }} onClick={() => userDelete(_id)}>Delete</Button>
+                <Button sx={{ m: 1 }}>
+                    <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
+                </Button>
+                <Button sx={{ m: 1 }} onClick={() => userDelete(_id)}>
+                    <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+                </Button>
             </TableCell>
         </TableRow>
     );

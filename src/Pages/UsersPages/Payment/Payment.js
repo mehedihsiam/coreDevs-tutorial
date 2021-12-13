@@ -1,7 +1,7 @@
 import React from 'react';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 
-const Payment = () => {
+const Payment = ({ fee }) => {
     const onSuccess = (payment) => {
         console.log("The payment was succeeded!", payment);
     }
@@ -13,7 +13,7 @@ const Payment = () => {
     }
     let env = 'sandbox';
     let currency = 'USD';
-    let total = 1;
+    const total = fee;
 
     const client = {
         sandbox: 'ASSY6pn30b_3-9l0rNCXMEqxUiE7xXD4cAJ5hGHjQ6NoEmC13yRF4FJR0NF75x4vj9dHDvujheXWBrCH',

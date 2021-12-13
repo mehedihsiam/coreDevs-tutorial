@@ -26,7 +26,7 @@ const BannerText = () => {
             <Typography sx={{ my: 2 }}>
                 CoreDevs Tutorial is a to do Application. You may take some notes by using our application.
             </Typography>
-            <Button variant='outlined'><Link className='link' to="/notes">Create a Note</Link></Button>
+            <Button variant='outlined'><Link className='link' to="/addNote">Create a Note</Link></Button>
         </Box>
     );
 };
