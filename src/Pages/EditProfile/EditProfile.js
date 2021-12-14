@@ -14,7 +14,11 @@ const EditProfile = () => {
     const [loadedUser, setLoadedUser] = useState();
 
     useEffect(() => {
-        fetch(`https://vast-stream-90795.herokuapp.com/users/${id}`)
+        fetch(`https://vast-stream-90795.herokuapp.com/users/${id}`, {
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('idToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setLoadedUser(data))
     }, [])
