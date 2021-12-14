@@ -11,6 +11,8 @@ import Subscription from './Pages/UsersPages/Subscription/Subscription';
 import SubsDetail from './Pages/UsersPages/Subscription/SubsDetail/SubsDetail';
 import EditSubs from './Pages/AdminPages/SubsList/SingleSubsList/EditSubs/EditSubs';
 import AuthProvider from './contexts/AuthProvider';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import NotFound from './Pages/NotFound/NotFound';
 
 
 
@@ -32,9 +34,9 @@ function App() {
           <Route exact path='/notes/:id'>
             <EditNotes></EditNotes>
           </Route>
-          <Route path='/Dashboard'>
+          <PrivateRoute path='/Dashboard'>
             <Dashboard></Dashboard>
-          </Route>
+          </PrivateRoute>
           <Route exact path={`/Subscriptions`}>
             <Subscription></Subscription>
           </Route>
@@ -49,6 +51,9 @@ function App() {
           </Route>
           <Route exact path='/Login'>
             <Login></Login>
+          </Route>
+          <Route exact path='/*'>
+            <NotFound></NotFound>
           </Route>
         </Switch>
 

@@ -25,6 +25,7 @@ import AddSubscription from '../AdminPages/AddSubscription/AddSubscription';
 import SubsList from '../AdminPages/SubsList/SubsList';
 import Notes from '../UsersPages/Notes/Notes';
 import useAuth from '../../hooks/useAuth';
+import DashboardHome from './DashboardHome/DashboardHome';
 
 
 
@@ -39,6 +40,7 @@ const drawerWidth = 240;
 
 // dashboard component
 const Dashboard = (props) => {
+    const loginCheck = sessionStorage.getItem('email')
     const { user, logOut } = useAuth()
 
     const { window } = props;
@@ -46,8 +48,6 @@ const Dashboard = (props) => {
 
     // const [client, setClient] = useState({})
     let { path, url } = useRouteMatch();
-
-
 
 
 
@@ -68,7 +68,7 @@ const Dashboard = (props) => {
             <Divider />
 
             {
-                user[0].role === 'User' &&
+                user[0]?.role === 'User' &&
                 <List>
                     <ListItem button>
                         <Link to={`${url}`} className="color-b" style={{ textDecoration: 'none' }}>Dashboard</Link>
@@ -81,7 +81,7 @@ const Dashboard = (props) => {
 
 
             {
-                user[0].role === 'Admin' &&
+                user[0]?.role === 'Admin' &&
                 <List>
                     <ListItem button>
                         <Link to={`${url}/allUsers`} className="color-b" style={{ textDecoration: 'none' }}>
@@ -104,7 +104,13 @@ const Dashboard = (props) => {
             <List>
 
                 <ListItem>
-                    <Button sx={{ width: '100%' }} onClick={logOut}>Logout</Button>
+                    {
+                        loginCheck ?
+
+                            <Button sx={{ width: '100%' }} onClick={logOut}>Logout</Button>
+                            :
+                            <Link className='link' to="/Login">Login</Link>
+                    }
                 </ListItem>
             </List>
         </div>

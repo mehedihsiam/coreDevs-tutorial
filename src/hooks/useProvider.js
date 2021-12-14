@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
 const useProvider = () => {
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
+
     const currentUser = sessionStorage.getItem('email')
 
     const logOut = () => {
@@ -17,7 +19,9 @@ const useProvider = () => {
 
         logOut,
         currentUser,
-        user
+        user,
+        isLoading,
+        setIsLoading
     };
 };
 
