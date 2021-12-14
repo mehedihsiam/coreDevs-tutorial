@@ -13,6 +13,8 @@ import EditSubs from './Pages/AdminPages/SubsList/SingleSubsList/EditSubs/EditSu
 import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import NotFound from './Pages/NotFound/NotFound';
+import Profile from './Pages/Profile/Profile';
+import EditProfile from './Pages/EditProfile/EditProfile';
 
 
 
@@ -31,24 +33,30 @@ function App() {
           <Route exact path='/SignUp'>
             <SignUp></SignUp>
           </Route>
-          <Route exact path='/notes/:id'>
+          <PrivateRoute exact path='/notes/:id'>
             <EditNotes></EditNotes>
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path='/Dashboard'>
             <Dashboard></Dashboard>
           </PrivateRoute>
           <Route exact path={`/Subscriptions`}>
             <Subscription></Subscription>
           </Route>
-          <Route exact path={`/Subscriptions/:id`}>
+          <PrivateRoute exact path={`/Subscriptions/:id`}>
             <SubsDetail></SubsDetail>
-          </Route>
-          <Route exact path={`/subscriptions/edit/:id`}>
+          </PrivateRoute>
+          <PrivateRoute exact path={`/subscriptions/edit/:id`}>
             <EditSubs></EditSubs>
-          </Route>
-          <Route exact path='/addNote'>
+          </PrivateRoute>
+          <PrivateRoute exact path='/addNote'>
             <Addnote></Addnote>
-          </Route>
+          </PrivateRoute>
+          <PrivateRoute exact path='/myProfile'>
+            <Profile></Profile>
+          </PrivateRoute>
+          <PrivateRoute exact path='/myProfile/edit/:id'>
+            <EditProfile></EditProfile>
+          </PrivateRoute>
           <Route exact path='/Login'>
             <Login></Login>
           </Route>

@@ -15,7 +15,7 @@ const Subscription = () => {
         <>
             <Navbar></Navbar>
             <Container>
-                <Grid container spacing={2} sx={{ justifyContent: 'space-around', mb: 5 }}>
+                <Grid container spacing={2} sx={{ justifyContent: 'space-around', my: 5 }}>
                     {
                         subscriptions.map(subscription => <SingleSubs
                             key={subscription._id}

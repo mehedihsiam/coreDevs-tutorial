@@ -6,7 +6,7 @@ const HomeSingleSubs = ({ subscription }) => {
     const { subscriptionTitle, subscriptionFee, subscriptionDetail, _id } = subscription;
     return (
         <>
-            <Card sx={{ maxWidth: 345, my: 2 }}>
+            <Card sx={{ maxWidth: 345, my: 2, textAlign: 'center' }}>
                 <CardHeader
                     title={subscriptionTitle}
                 />
@@ -14,7 +14,7 @@ const HomeSingleSubs = ({ subscription }) => {
                     <Typography variant="body2" color="text.secondary">
                         {subscriptionDetail}
                     </Typography>
-                    <Typography variant="h5" className='color-a'>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', my: 2 }} className='color-b'>
                         Fee: $ {subscriptionFee}
                     </Typography>
                 </CardContent>

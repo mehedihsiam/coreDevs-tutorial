@@ -6,7 +6,7 @@ const SingleSubs = ({ subscription }) => {
     const { subscriptionTitle, subscriptionFee, subscriptionDetail, _id } = subscription;
     return (
         <>
-            <Card sx={{ maxWidth: 345, my: 2 }}>
+            <Card sx={{ maxWidth: 345, my: 2, textAlign: 'center' }}>
                 <CardHeader
                     title={subscriptionTitle}
                 />

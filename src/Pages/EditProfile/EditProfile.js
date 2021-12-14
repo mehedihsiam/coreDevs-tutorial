@@ -2,28 +2,29 @@ import { Button, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory, useLocation, useParams } from 'react-router-dom';
-import Progress from '../../../../Progress/Progress';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import Progress from '../../Progress/Progress';
 
-const EditNotes = () => {
+const EditProfile = () => {
     const history = useHistory();
     const location = useLocation()
-    const url = location.state?.from || '/Dashboard/myNotes';
+    const url = location.state?.from || '/myProfile';
     const { id } = useParams();
-    const [loadedNote, setLoadedNote] = useState();
+    const [loadedUser, setLoadedUser] = useState();
 
     useEffect(() => {
-        fetch(`https://vast-stream-90795.herokuapp.com/notes/${id}`)
+        fetch(`https://vast-stream-90795.herokuapp.com/users/${id}`)
             .then(res => res.json())
-            .then(data => setLoadedNote(data))
+            .then(data => setLoadedUser(data))
     }, [])
-    console.log(loadedNote)
+    console.log(loadedUser)
 
 
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch(`https://vast-stream-90795.herokuapp.com/notes/${id}`, {
+        fetch(`https://vast-stream-90795.herokuapp.com/users/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -33,7 +34,7 @@ const EditNotes = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert("Updated this note")
+                    alert("Updated")
                     history.push(url);
                 }
             })
@@ -42,22 +43,21 @@ const EditNotes = () => {
     return (
         <Box sx={{ width: { xs: '100%', md: '30%' }, mx: 'auto', py: 4, textAlign: 'center' }}>
             {
-                loadedNote ? <form onSubmit={handleSubmit(onSubmit)}>
+                loadedUser ? <form onSubmit={handleSubmit(onSubmit)}>
                     <TextField
-                        {...register("noteTitle")}
+                        {...register("name")}
                         sx={{ width: '100%' }}
-                        label="Title"
+                        label="Name"
                         variant="outlined"
-                        defaultValue={loadedNote?.noteTitle}
+                        defaultValue={loadedUser?.name}
                     />
                     <br /><br />
                     <TextField
-                        label="Your note"
-                        multiline
-                        rows={4}
+                        {...register("email")}
                         sx={{ width: '100%' }}
-                        defaultValue={loadedNote?.note}
-                        {...register("note")}
+                        label="Email"
+                        variant="outlined"
+                        defaultValue={loadedUser?.email}
                     />
                     <br /><br />
                     <Button type="submit" variant="contained">Update</Button>
@@ -69,4 +69,4 @@ const EditNotes = () => {
     );
 };
 
-export default EditNotes;
+export default EditProfile;

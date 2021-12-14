@@ -90,6 +90,11 @@ const Navbar = () => {
                                 </MenuItem>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
+                                        <Link className='link' to="/myProfile">Profile</Link>
+                                    </Typography>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">
                                         {
                                             loginCheck ?
                                                 <button className='btn-a color-a' onClick={logOut}>Logout</button>

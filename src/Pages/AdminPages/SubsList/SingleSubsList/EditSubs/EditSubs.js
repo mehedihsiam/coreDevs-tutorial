@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import Progress from '../../../../../Progress/Progress';
 
 const EditSubs = () => {
     const { id } = useParams();
@@ -65,7 +66,7 @@ const EditSubs = () => {
                     <Button type="submit" variant="contained">Update</Button>
                 </form>
                     :
-                    <p>Loading.....</p>
+                    <Progress></Progress>
             }
         </Box>
     );
