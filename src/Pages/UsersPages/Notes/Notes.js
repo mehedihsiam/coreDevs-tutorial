@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 import Note from './Note/Note';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Navbar from '../../../Shared/Header/Navbar/Navbar';
+import useAuth from '../../../hooks/useAuth';
 
 
 const Notes = () => {
+    const { currentUser } = useAuth();
     const [notes, setNotes] = useState([])
     useEffect(() => {
-        fetch('https://vast-stream-90795.herokuapp.com/notes')
+        fetch(`https://vast-stream-90795.herokuapp.com/notes?email=${currentUser}`)
             .then(res => res.json())
             .then(data => setNotes(data))
     }, [])
     return (
         <>
-            <Navbar></Navbar>
             <Container>
 
                 <Grid container spacing={2} sx={{ justifyContent: 'space-around', my: 4 }}>

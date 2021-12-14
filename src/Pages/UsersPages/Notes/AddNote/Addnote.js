@@ -3,15 +3,17 @@ import { Box } from '@mui/system';
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../../../hooks/useAuth';
 
 
 const Addnote = () => {
+    const { currentUser } = useAuth();
     const date = new Date();
     const stringDate = date.toDateString().split(' ')
     const finalDate = stringDate[1] + ' ' + stringDate[2] + ',' + stringDate[3];
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        const noteData = { ...data, noteDate: finalDate }
+        const noteData = { ...data, noteDate: finalDate, email: currentUser }
         axios.post('https://vast-stream-90795.herokuapp.com/notes', noteData)
             .then(res => {
                 if (res.status === 200) {

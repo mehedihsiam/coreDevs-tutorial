@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SignUp from './Pages/SignUp/SignUp';
 import Login from './Pages/Login/Login';
 import Addnote from './Pages/UsersPages/Notes/AddNote/Addnote';
-import Notes from './Pages/UsersPages/Notes/Notes';
 import EditNotes from './Pages/UsersPages/Notes/EditNotes/EditNotes';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Subscription from './Pages/UsersPages/Subscription/Subscription';
@@ -29,9 +28,6 @@ function App() {
           </Route>
           <Route exact path='/SignUp'>
             <SignUp></SignUp>
-          </Route>
-          <Route exact path='/notes'>
-            <Notes></Notes>
           </Route>
           <Route exact path='/notes/:id'>
             <EditNotes></EditNotes>

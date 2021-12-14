@@ -10,11 +10,10 @@ import MenuItem from '@mui/material/MenuItem';
 import './Navbar.css'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
-const settings = ['Profile', 'Subscriptions', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -81,7 +80,7 @@ const Navbar = () => {
 
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
-                                        <Link className='link' to="/Subscriptions">Subscriptions</Link>
+                                        <Link className='link' to="/addNote">Create a Note</Link>
                                     </Typography>
                                 </MenuItem>
                                 <MenuItem onClick={handleCloseNavMenu}>

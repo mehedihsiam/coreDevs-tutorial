@@ -2,9 +2,12 @@ import { Button, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 
 const EditNotes = () => {
+    const history = useHistory();
+    const location = useLocation()
+    const url = location.state?.from || '/Dashboard/myNotes';
     const { id } = useParams();
     const [loadedNote, setLoadedNote] = useState();
 
@@ -30,6 +33,7 @@ const EditNotes = () => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     alert("Updated this note")
+                    history.push(url);
                 }
             })
 

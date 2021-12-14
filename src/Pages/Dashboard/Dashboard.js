@@ -20,10 +20,11 @@ import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
-import Payment from '../UsersPages/Payment/Payment';
 import AllUsers from '../AdminPages/AllUsers/AllUsers';
 import AddSubscription from '../AdminPages/AddSubscription/AddSubscription';
 import SubsList from '../AdminPages/SubsList/SubsList';
+import Notes from '../UsersPages/Notes/Notes';
+import useAuth from '../../hooks/useAuth';
 
 
 
@@ -38,6 +39,8 @@ const drawerWidth = 240;
 
 // dashboard component
 const Dashboard = (props) => {
+    const { user, logOut } = useAuth()
+
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -64,29 +67,35 @@ const Dashboard = (props) => {
             </Toolbar>
             <Divider />
 
-            <List>
-                <ListItem button>
-                    <Link to={`${url}`} className="color-b" style={{ textDecoration: 'none' }}>Dashboard</Link>
-                </ListItem>
-                <ListItem button>
-                    <Link to={`${url}/payment`} className="color-b" style={{ textDecoration: 'none' }}>Payment</Link>
-                </ListItem>
-            </List>
+            {
+                user[0].role === 'User' &&
+                <List>
+                    <ListItem button>
+                        <Link to={`${url}`} className="color-b" style={{ textDecoration: 'none' }}>Dashboard</Link>
+                    </ListItem>
+                    <ListItem button>
+                        <Link to={`${url}/myNotes`} className="color-b" style={{ textDecoration: 'none' }}>My Notes</Link>
+                    </ListItem>
+                </List>
+            }
 
 
-            <List>
-                <ListItem button>
-                    <Link to={`${url}/allUsers`} className="color-b" style={{ textDecoration: 'none' }}>
-                        All Users
-                    </Link>
-                </ListItem>
-                <ListItem button>
-                    <Link to={`${url}/subscriptionList`} className="color-b" style={{ textDecoration: 'none' }}>Subscription List</Link>
-                </ListItem>
-                <ListItem button>
-                    <Link to={`${url}/addSubscription`} className="color-b" style={{ textDecoration: 'none' }}>Add Subscription</Link>
-                </ListItem>
-            </List>
+            {
+                user[0].role === 'Admin' &&
+                <List>
+                    <ListItem button>
+                        <Link to={`${url}/allUsers`} className="color-b" style={{ textDecoration: 'none' }}>
+                            All Users
+                        </Link>
+                    </ListItem>
+                    <ListItem button>
+                        <Link to={`${url}/subscriptionList`} className="color-b" style={{ textDecoration: 'none' }}>Subscription List</Link>
+                    </ListItem>
+                    <ListItem button>
+                        <Link to={`${url}/addSubscription`} className="color-b" style={{ textDecoration: 'none' }}>Add Subscription</Link>
+                    </ListItem>
+                </List>
+            }
 
             <ListItem button>
                 <Link to="/home" className="color-b" style={{ textDecoration: 'none' }}>Go Home</Link>
@@ -95,7 +104,7 @@ const Dashboard = (props) => {
             <List>
 
                 <ListItem>
-                    <Button sx={{ width: '100%' }}>Logout</Button>
+                    <Button sx={{ width: '100%' }} onClick={logOut}>Logout</Button>
                 </ListItem>
             </List>
         </div>
@@ -181,8 +190,8 @@ const Dashboard = (props) => {
                     <Route exact path={path}>
 
                     </Route>
-                    <Route path={`${path}/payment`}>
-                        <Payment></Payment>
+                    <Route path={`${path}/myNotes`}>
+                        <Notes></Notes>
                     </Route>
                     <Route path={`${path}/allUsers`}>
                         <AllUsers></AllUsers>
