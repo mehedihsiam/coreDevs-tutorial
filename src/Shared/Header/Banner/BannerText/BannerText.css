@@ -1,3 +1,14 @@
 .link{
     text-decoration: none;
+
+    width: 100%;
+}
+.link-b{
+    text-decoration: none;
+    color: white;
+    width: 100%;
+}
+
+.link-b:hover{
+    color: rgb(223, 223, 223);
 }

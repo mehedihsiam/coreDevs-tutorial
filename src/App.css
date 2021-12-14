@@ -40,6 +40,11 @@
    color: #00c271;
  }
 
+ .btn-a{
+   background-color: transparent;
+   border: none;
+ }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

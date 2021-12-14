@@ -10,8 +10,9 @@ import MenuItem from '@mui/material/MenuItem';
 import './Navbar.css'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Container } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const settings = ['Profile', 'Subscriptions', 'Dashboard', 'Logout'];
 
@@ -31,6 +32,8 @@ const Navbar = () => {
         setAnchorElUser(null);
     };
 
+    const { logOut } = useAuth();
+    const loginCheck = sessionStorage.getItem('email')
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -78,12 +81,22 @@ const Navbar = () => {
 
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
-                                        <Link className='link' to="Subscriptions">Subscriptions</Link>
+                                        <Link className='link' to="/Subscriptions">Subscriptions</Link>
                                     </Typography>
                                 </MenuItem>
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
-                                        <Link className='link' to="Dashboard">Dashboard</Link>
+                                        <Link className='link' to="/Dashboard">Dashboard</Link>
+                                    </Typography>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">
+                                        {
+                                            loginCheck ?
+                                                <button className='btn-a color-a' onClick={logOut}>Logout</button>
+                                                :
+                                                <Link className='link' to="/Login">Login</Link>
+                                        }
                                     </Typography>
                                 </MenuItem>
 

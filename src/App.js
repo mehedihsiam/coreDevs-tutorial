@@ -11,50 +11,53 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import Subscription from './Pages/UsersPages/Subscription/Subscription';
 import SubsDetail from './Pages/UsersPages/Subscription/SubsDetail/SubsDetail';
 import EditSubs from './Pages/AdminPages/SubsList/SingleSubsList/EditSubs/EditSubs';
+import AuthProvider from './contexts/AuthProvider';
 
 
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path='/'>
-          <Home></Home>
-        </Route>
-        <Route exact path='/home'>
-          <Home></Home>
-        </Route>
-        <Route exact path='/SignUp'>
-          <SignUp></SignUp>
-        </Route>
-        <Route exact path='/notes'>
-          <Notes></Notes>
-        </Route>
-        <Route exact path='/notes/:id'>
-          <EditNotes></EditNotes>
-        </Route>
-        <Route path='/Dashboard'>
-          <Dashboard></Dashboard>
-        </Route>
-        <Route exact path={`/Subscriptions`}>
-          <Subscription></Subscription>
-        </Route>
-        <Route exact path={`/Subscriptions/:id`}>
-          <SubsDetail></SubsDetail>
-        </Route>
-        <Route exact path={`/subscriptions/edit/:id`}>
-          <EditSubs></EditSubs>
-        </Route>
-        <Route exact path='/addNote'>
-          <Addnote></Addnote>
-        </Route>
-        <Route exact path='/Login'>
-          <Login></Login>
-        </Route>
-      </Switch>
+    <AuthProvider>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/'>
+            <Home></Home>
+          </Route>
+          <Route exact path='/home'>
+            <Home></Home>
+          </Route>
+          <Route exact path='/SignUp'>
+            <SignUp></SignUp>
+          </Route>
+          <Route exact path='/notes'>
+            <Notes></Notes>
+          </Route>
+          <Route exact path='/notes/:id'>
+            <EditNotes></EditNotes>
+          </Route>
+          <Route path='/Dashboard'>
+            <Dashboard></Dashboard>
+          </Route>
+          <Route exact path={`/Subscriptions`}>
+            <Subscription></Subscription>
+          </Route>
+          <Route exact path={`/Subscriptions/:id`}>
+            <SubsDetail></SubsDetail>
+          </Route>
+          <Route exact path={`/subscriptions/edit/:id`}>
+            <EditSubs></EditSubs>
+          </Route>
+          <Route exact path='/addNote'>
+            <Addnote></Addnote>
+          </Route>
+          <Route exact path='/Login'>
+            <Login></Login>
+          </Route>
+        </Switch>
 
-    </BrowserRouter>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

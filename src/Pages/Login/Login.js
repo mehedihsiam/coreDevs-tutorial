@@ -1,6 +1,6 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 
@@ -8,30 +8,22 @@ const Login = () => {
     const history = useHistory();
     const location = useLocation()
     const url = location.state?.from || '/';
-
-
-    const [user, setUser] = useState([]);
     const { register, handleSubmit, reset } = useForm();
-    const onSubmit = data => {
-        axios.post('https://vast-stream-90795.herokuapp.com/userLogin', data)
+    const onSubmit = loginData => {
+        axios.post('https://vast-stream-90795.herokuapp.com/userLogin', loginData)
             .then(result => {
                 const idToken = result.data.accessToken;
                 localStorage.setItem('idToken', idToken)
                 if (result.status === 200) {
-                    fetch(`https://vast-stream-90795.herokuapp.com/users?email=${data.email}`)
-                        .then(res => res.json())
-                        .then(data => {
-                            setUser(data)
-                            history.push(url)
-                        })
-                    alert('Login Successful')
+                    history.push(url);
+                    alert('Login Successful');
+                    sessionStorage.setItem('email', loginData.email);
                     reset();
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
             });
-        sessionStorage.setItem('email', user[0].email)
     };
 
 
@@ -48,7 +40,6 @@ const Login = () => {
             <Typography>
                 New to CoreDevs Tuitorial?
                 <Link to="/SignUp">Sign Up</Link>
-                <p>{user[0]?.name}</p>
             </Typography>
 
         </Box>

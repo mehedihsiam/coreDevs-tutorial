@@ -11,7 +11,6 @@ const SignUp = () => {
         formData.append('email', data.email)
         formData.append('password', data.password)
         formData.append('image', data.image[0])
-        console.log(data.image[0])
 
         fetch('https://vast-stream-90795.herokuapp.com/userReg', {
             method: 'POST',
@@ -20,7 +19,7 @@ const SignUp = () => {
             .then(response => response.json())
             .then(result => {
                 if (result.insertedId) {
-                    alert('Registered Successful')
+                    alert('Registered Successful. Please Login')
                     reset();
                 }
             })

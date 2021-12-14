@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent, CardHeader, Typography } from '
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SingleSubs = ({ subscription }) => {
+const HomeSingleSubs = ({ subscription }) => {
     const { subscriptionTitle, subscriptionFee, subscriptionDetail, _id } = subscription;
     return (
         <>
@@ -28,4 +28,4 @@ const SingleSubs = ({ subscription }) => {
     );
 };
 
-export default SingleSubs;
+export default HomeSingleSubs;
